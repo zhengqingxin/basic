@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<!--
+  Created using jsbin.qiwoo.org
+  Source can be edited via http://jsbin.qiwoo.org/widecibi/1/edit
+-->
+<head>
+  <meta charset="utf-8">
+  <title>BFC</title>
+
+<style id="jsbin-css">
+.bfc{
+  overflow:hidden;
+}
+
+.a{
+  border:1px solid #000;
+}
+
+.a > div{
+  width:100px;
+  height:100px;
+  background:red;
+  float:left;
+}
+
+.b{
+  margin:30px;
+  height:50px;
+  background:blue;
+}
+
+.c{
+  overflow:hidden;
+}
+.d{
+  background:red;
+  margin:30px;
+  height:50px;
+}
+.e>div{
+  width:50px;
+  height:50px;
+  background:blue;
+  float:left;
+}
+</style>
+</head>
+<body>
+  <pre>
+  触发BFC(格式化上下文):
+  1.body 根元素
+  2.浮动元素：float 除 none 以外的值
+  3.绝对定位元素：position (absolute、fixed)
+  4.display 为 inline-block、table-cells、flex
+  overflow 除了 visible 以外的值 (hidden、auto、scroll)
+  </pre>
+  <hr>
+  <h4>清除浮动</h4>
+  <section class="a">
+    <div></div>
+  </section>
+  
+  <section class="a bfc" style="clear:both;margin-top:110px">
+    <div></div>
+  </section>
+  
+
+  <hr style="clear:both;">  
+  
+  <h4>同一个 BFC 下外边距会发生折叠，如果不想折叠，需要放在不同的 BFC 中</h4>
+  <section class="b"></section>
+  <section class="b"></section>
+
+  <div class="c">
+    <section class="d"></section>
+  </div>
+  <div class="c">
+    <section class="d"></section>
+  </div>
+  <hr>
+  <h4>阻止文字环绕</h4>
+  
+  <section class="e">
+    <div></div>
+    <p>阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕</p>
+  </section>
+  
+  <section class="e">
+    <div></div>
+    <p class="bfc">阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕阻止文字环绕</p>
+  </section>
+  
+<script>
+
+</script>
+</body>
+</html>
