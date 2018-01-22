@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .border{
+      border:1px solid #CCC;
+    }
+    .tc{
+      text-align: center;
+    }
+    .ma{
+      margin: 0 auto;
+    }
+    .di{
+      display: inline;
+    }
+    .block{
+      width:50px;
+      height:50px;
+      background: red;
+    }
+    .flex{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .pr{
+      position: relative;
+      height:50px;
+    }
+    .pac{
+      position: absolute;
+      left:50%;
+      transform: translateX(-50%);
+    }
+
+    .hn{
+      height: 100px;
+    }
+    .lh{
+      line-height: 100px;
+    }
+    .dtvm{
+      width:100px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .pahc{
+      position: absolute;
+      top:50%;
+      transform: translateY(-50%);
+    }
+  </style>
+</head>
+<body>
+  <h3>水平居中</h3>
+  <h4>行内元素：对父元素设置text-align:center;</h4>
+  <p class="tc border">居中</p>
+  <h4>定宽块状：设置左右margin值为auto;</h4>
+  <section class="border">
+    <div class="block ma"></div>
+  </section>
+  <h4>不定宽块状：设置子元素为display:inline/inline-block,然后在父元素上设置text-align:center;（inline-block会产生间距，<a href="https://www.w3cplus.com/css/fighting-the-space-between-inline-block-elements">解决方案</a>）</h4>
+  <section class="border tc">
+    <div class="di">居中</div>
+  </section>
+  <h4>flex：对父元素设置display:flex;justify-content:center;</h4>
+  <section class="border flex">
+    <div class="block"></div>
+  </section>
+  <h4>绝对定位</h4>
+  <section class="pr border">
+    <div class="pac block"></div>
+  </section>
+  <hr>
+  <h3>垂直居中</h3>
+  
+  <h4>单行内联文本:line-height = height</h4>
+  <p class="hn border lh">居中</p>
+
+  <h4>多行内联文本:设置父元素的 display:table-cell，vertical-align:middle;</h4>
+  <p class="hn border dtvm">居中居中居中居中居中居中</p>
+
+  <h4>块状元素:绝对定位</h4>
+  <div class="hn border pr">
+    <div class="block pahc" ></div>
+  </div>
+
+  <h4>flex:align-items:center</h4>
+  <div class="hn border flex">
+    <div class="block"></div>
+  </div>
+</body>
+</html>
