@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://code.h5jun.com
+
+Copyright (c) 2018 by anonymous (//code.h5jun.com/duwu/3/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>flex</title>
+<style id="jsbin-css">
+.flex{
+  display:flex;
+}
+
+.a > div{
+  width:50px;
+  height:50px;
+  background:yellow;
+  margin:5px;
+  text-align:center;
+  line-height:50px;
+}
+.a{
+  margin-bottom:10px;
+}
+
+.b > div{
+  width:200px;
+  height:200px;
+  background:blue;
+  margin:10px;
+}
+
+.d > div{
+  width:50px;
+  height:50px;
+  background:yellow;
+  margin:10px;
+}
+
+.e{
+  width:100%;
+  height:100px;
+}
+.e>div{
+  background:red;
+  width:50px;
+  margin:10px;
+}
+
+</style>
+</head>
+<body>
+  <pre>
+    注意点：
+    1.当时设置 flex 布局之后，子元素的 float、clear、vertical-align 的属性将会失效。
+    
+    资料：
+    <a href="https://zhuanlan.zhihu.com/p/29637639">2017年如何在移动端优雅的使用flex</a>
+    <a href="https://zhuanlan.zhihu.com/p/25303493">30 分钟学会 Flex 布局</a>
+  </pre>
+  <hr>
+  <h4>flex-direction: 决定主轴的方向</h4>
+  <span>默认row</span>
+  <section class="flex a">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </section>
+  <span>row-reverse</span>
+  <section class="flex a" style="flex-direction:row-reverse;">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </section>
+  <span>column</span>
+  <section class="flex a" style="flex-direction:column;">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </section>
+  <span>column-reverse</span>
+  <section class="flex a" style="flex-direction:column-reverse;">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </section>
+  <hr>
+  <h4>flex-wrap: 决定容器内项目是否可换行</h4>
+  <span>nowrap 不换行，自动压缩宽度</span>
+  <section class="b flex">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <span>wrap 换行</span>
+  <section class="b flex" style="flex-wrap:wrap;">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <span>wrap-reverse 反着换行</span>
+    <section class="b flex" style="flex-wrap:wrap-reverse;">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+  </section>
+  <hr>
+  <h4> justify-content:定义了项目在主轴的对齐方式</h4>
+  <span>默认值: flex-start 左对齐</span>
+  <section class="d flex" style="justify-content:flex-start">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <span>flex-end 右对齐</span>
+  <section class="d flex" style="justify-content:flex-end">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <span>center 居中</span>
+  <section class="d flex" style="justify-content:center">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <span>space-between：两端对齐，项目之间的间隔相等，即剩余空间等分成间隙。</span>
+  <section class="d flex" style="justify-content:space-between">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <span>space-around：每个项目两侧的间隔相等，所以项目之间的间隔比项目与边缘的间隔大一倍。</span>
+  <section class="d flex" style="justify-content:space-around">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <hr>
+  <h3>align-items: 定义了项目在交叉轴上的对齐方式</h4>
+  <h4>auto默认撑满</h4>
+  <section class="e flex">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <hr>
+  <h4>flex-start</h4>
+  <section class="e flex" style="align-items:flex-start">
+    <div style="height:50px;"></div>
+    <div style="height:70px;"></div>
+    <div></div>
+  </section>
+  <hr>
+  <h4>flex-end</h4>
+  <section class="e flex" style="align-items:flex-end">
+    <div style="height:50px;"></div>
+    <div style="height:70px;"></div>
+    <div></div>
+  </section>
+  <hr>
+  <h4>center</h4>
+  <section class="e flex" style="align-items:center">
+    <div style="height:50px;"></div>
+    <div style="height:70px;"></div>
+    <div></div>
+  </section>
+  <hr>
+  <h4>baseline:文字对齐</h4>
+  <section class="e flex" style="align-items:baseline">
+    <div style="height:50px;">1</div>
+    <div style="height:70px;padding-top:20px;">2</div>
+    <div>3</div>
+  </section>
+  <hr>
+  <h3>align-content</h3>
+  <hr>
+  <h3>flex item 属性：</h3>
+  <h4>order:默认是0</h4>
+  <section class="d flex">
+    <div style="order:2">1</div>
+    <div style="order:-1">2</div>
+    <div>3</div>
+    <div>4</div>
+  </section>
+  <hr>
+  <h4>flex-basis:</h4>
+  <hr>
+  <h4>flex-grow:</h4>
+  <hr>
+  <h4>flex-shrink:</h4>
+  <hr>
+  <h4>align-self:单个项目覆盖 align-items 定义的属性</h4>
+    <section class="e flex" style="align-items:flex-end">
+    <div style="height:50px;"></div>
+    <div style="height:50px;"></div>
+    <div style="height:50px;align-self:flex-start"></div>
+    <div style="height:50px;"></div>
+  </section>
+</body>
+</html>
