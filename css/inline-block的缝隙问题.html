@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>inline-block的缝隙问题</title>
+  <style>
+    .fs0{
+      font-size:0;
+    }
+    .container > div {
+      width: 50px;
+      height:50px;
+      background:red;
+      display:inline-block;
+    }
+
+
+    
+    .img-container > img{
+      width: 100px;
+    }
+
+  </style>
+</head>
+<body>
+  <span>正常情况display:inline-block;每个项目之间会产生缝隙。原因是每个项目代码中换行/空格引起的。</span>
+  <section class="container">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>    
+  </section>
+  <span>有一种方案是让每个项目代码不换行(果断放弃)，另一种是设置父元素font-size:0;</span>
+  <section class="container fs0">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>    
+  </section>
+  <span></span>
+  <span>同样的问题也存在在图片中</span>  
+  <section class="img-container">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516796952438&di=d4605a8c85aecb1359aa771bda9cc03e&imgtype=0&src=http%3A%2F%2Fimg.go007.com%2F2016%2F11%2F29%2Fe67596ed60a56f78_0.jpg" alt="">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516796952438&di=d4605a8c85aecb1359aa771bda9cc03e&imgtype=0&src=http%3A%2F%2Fimg.go007.com%2F2016%2F11%2F29%2Fe67596ed60a56f78_0.jpg" alt="">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516796952438&di=d4605a8c85aecb1359aa771bda9cc03e&imgtype=0&src=http%3A%2F%2Fimg.go007.com%2F2016%2F11%2F29%2Fe67596ed60a56f78_0.jpg" alt="">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516796952438&di=d4605a8c85aecb1359aa771bda9cc03e&imgtype=0&src=http%3A%2F%2Fimg.go007.com%2F2016%2F11%2F29%2Fe67596ed60a56f78_0.jpg" alt="">
+  </section>
+  <section class="img-container fs0">
+      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516796952438&di=d4605a8c85aecb1359aa771bda9cc03e&imgtype=0&src=http%3A%2F%2Fimg.go007.com%2F2016%2F11%2F29%2Fe67596ed60a56f78_0.jpg" alt="">
+      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516796952438&di=d4605a8c85aecb1359aa771bda9cc03e&imgtype=0&src=http%3A%2F%2Fimg.go007.com%2F2016%2F11%2F29%2Fe67596ed60a56f78_0.jpg" alt="">
+      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516796952438&di=d4605a8c85aecb1359aa771bda9cc03e&imgtype=0&src=http%3A%2F%2Fimg.go007.com%2F2016%2F11%2F29%2Fe67596ed60a56f78_0.jpg" alt="">
+      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516796952438&di=d4605a8c85aecb1359aa771bda9cc03e&imgtype=0&src=http%3A%2F%2Fimg.go007.com%2F2016%2F11%2F29%2Fe67596ed60a56f78_0.jpg" alt="">
+    </section>
+</body>
+</html>
