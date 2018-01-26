@@ -28,7 +28,7 @@ const p = Promise.race([
 p.then(response => console.log(response));
 p.catch(error => console.log(error));
 ```
-### 请求设置缓存
+### 请求设置缓存
 ```js
 var userCache = {};
 
@@ -166,5 +166,4 @@ foo().then(function(res) {
 "bar timeout after"
 "bar timeout"
 */
-
 ```
