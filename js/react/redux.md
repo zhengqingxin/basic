@@ -131,7 +131,7 @@ export default function applyMiddleware(...middlewares) {
 }
 ```
 ## reducer enhancers
-顾名思义，reducer的“增强剂”。首先我们再回到 createStore 中，第一个参数我们需要定义reducers，不考虑state分割的情况下，我们可能会定义成这样：
+顾名思义，reducer的“增强剂”。首先我们再回到 createStore 中，第一个参数我们需要定义reducers，不考虑state分割的情况下，我们可能会定义成这样：
 ```js
 function counter(state, action) {
   if (typeof state === 'undefined') {
@@ -148,17 +148,17 @@ function counter(state, action) {
   }
 }
 ```
-然而这个“模板”是一直从 Redux 文档中流传下来的，但如果我写成这样呢？
+然而这个“模板”是一直从 Redux 文档中流传下来的，但如果我写成这样呢？
 ```js
 function counter(state,action){
   //我啥也不做
 }
 ```
-实时证明在写成这样在 createStore 的时候也可以通过的，只不过在`store.getState()`的时候是`undefined`。
+实时证明在写成这样在 createStore 的时候也可以通过的，只不过在`store.getState()`的时候是`undefined`。
 
 所以，个人认为没有什么 `reducer enhancers` 的概念。
 
-### dispatch 的时候是如何调用 reducer 的
+### dispatch 的时候是如何调用 reducer 的
 其实很简单，直接看源码：
 ```js
   function dispatch(action) {
