@@ -158,7 +158,7 @@ function counter(state,action){
 
 所以，个人认为没有什么 `reducer enhancers` 的概念。
 
-### dispatch 的时候是如何调用 reducer 的
+## dispatch 的时候是如何调用 reducer 的
 其实很简单，直接看源码：
 ```js
   function dispatch(action) {
