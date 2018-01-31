@@ -81,8 +81,8 @@ function createLogger(createStore){
 var store = Redux.createStore(counter,createLogger);
 ```
 
-这样就实现了一个记录日志的功能，每次 `dispatch` 的时候都会记录。
-有些人可能想到了，enhancer权力好像有些大？是的，它可以增强 store 的行为，同时也可能破坏它，所以大家写 enhancers 的时候一定要注意：__不要破坏了Redux的原有工作流__。比如上面例子中这行代码就保证了 Redux 原本的工作流。
+这样就实现了一个记录日志的功能，每次 `dispatch` 的时候都会记录。
+有些人可能想到了，enhancer权力好像有些大？是的，它可以增强 store 的行为，同时也可能破坏它，所以大家写 enhancers 的时候一定要注意：__不要破坏了Redux的原有工作流__。比如上面例子中这行代码就保证了 Redux 原本的工作流。
 ```js
 const res = store.dispatch(action);
 ```
@@ -103,7 +103,7 @@ let store = createStore(
 ```js
 var store = Redux.createStore(counter,createLogger);
 ```
-是不是很相似呢？没错，原理都是一个。这里调用了 Redux 提供的 applyMiddleware 方法，从而实现了我们上面的过程。所以，我把这里的 Middleware 归纳成 __一个只可以扩展 dispatch 方法的 Store Enhancers__。下面列出 applyMiddleware 方法的源码吧，很简单相信大家都可以看懂。
+是不是很相似呢？没错，原理都是一个。这里调用了 Redux 提供的 applyMiddleware 方法，从而实现了我们上面的过程。所以，我把这里的 Middleware 归纳成 __一个只可以扩展 dispatch 方法的 Store Enhancers__。下面列出 applyMiddleware 方法的源码吧，很简单相信大家都可以看懂。
 ```js
 export default function applyMiddleware(...middlewares) {
   return createStore => (...args) => {
