@@ -1,4 +1,4 @@
-# Redux 划重点及源码剖析——Enhancers/Middleware
+# Redux 相关概念及源码分析
 
 ## 划重点：
 * 三个概念：(state, action) => state
@@ -9,7 +9,7 @@
 
 ## 概念相关源码
 
-### createStore 相关
+### createStore
 首先我们先看下 createStore 的参数列表及其返回值：
 ```js
 export default function createStore(reducer, preloadedState, enhancer) {
@@ -130,3 +130,54 @@ export default function applyMiddleware(...middlewares) {
   }
 }
 ```
+## reducer enhancers
+顾名思义，reducer的“增强剂”。首先我们再回到 createStore 中，第一个参数我们需要定义reducers，不考虑state分割的情况下，我们可能会定义成这样：
+```js
+function counter(state, action) {
+  if (typeof state === 'undefined') {
+    return 0
+  }
+
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    case 'DECREMENT':
+      return state - 1
+    default:
+      return state
+  }
+}
+```
+然而这个“模板”是一直从 Redux 文档中流传下来的，但如果我写成这样呢？
+```js
+function counter(state,action){
+  //我啥也不做
+}
+```
+实时证明在写成这样在 createStore 的时候也可以通过的，只不过在`store.getState()`的时候是`undefined`。
+
+所以，个人认为没有什么 `reducer enhancers` 的概念。
+
+### dispatch 的时候是如何调用 reducer 的
+其实很简单，直接看源码：
+```js
+  function dispatch(action) {
+    // 各种判断
+    try {
+      isDispatching = true
+      // 正常情况下 currentReducer 就是我们传进去的 reducer
+      currentState = currentReducer(currentState, action)
+    } finally {
+      isDispatching = false
+    }
+
+    const listeners = (currentListeners = nextListeners)
+    for (let i = 0; i < listeners.length; i++) {
+      const listener = listeners[i]
+      listener()
+    }
+
+    return action
+  }
+```
+上述代码中，我们还看到 dispatch 的时候还会调用 `listener()`，`listeners` 是通过 `subscribe` 方法来订阅的，比如通常我们所做的会把 `render` 方法添加到这里。这样就可以实现数据变化后重新渲染了。
