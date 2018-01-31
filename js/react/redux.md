@@ -1,4 +1,4 @@
-# Redux 划重点及源码剖析——Enhancers/Middleware
+# Redux 划重点及源码剖析——Enhancers/Middleware
 
 ## 划重点：
 * 三个概念：(state, action) => state
