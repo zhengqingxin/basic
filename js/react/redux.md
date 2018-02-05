@@ -180,4 +180,4 @@ function counter(state,action){
     return action
   }
 ```
-上述代码中，我们还看到 dispatch 的时候还会调用 `listener()`，`listeners` 是通过 `subscribe` 方法来订阅的，比如通常我们所做的会把 `render` 方法添加到这里。这样就可以实现数据变化后重新渲染了。
+上述代码中，我们还看到 dispatch 的时候还会调用 `listener()`，`listeners` 是通过 `subscribe` 方法来订阅的，比如通常我们所做的会把 `render` 方法添加到这里。这样就可以实现数据变化后重新渲染。
